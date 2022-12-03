@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {UserNameContext} from "../App"
 
-const Home = () => {
+export const Home = () => {
+const {username} = useContext(UserNameContext)
   return (
-    <div>This is Home </div>
+    <h1>This is {username} </h1>
   )
 }
 
-export default Home

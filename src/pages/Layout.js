@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {UserNameContext} from "../App"
 
 const Layout = () => {
+  const {username} = useContext(UserNameContext)
+
   return (
-    <div>This is layout Page</div>
+    <h1>This is layout Page {username} </h1>
   )
 }
 

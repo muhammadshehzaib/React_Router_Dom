@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState,createContext } from 'react'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import Home from "./pages/Home"
+import {Home} from "./pages/Home"
 import Layout from "./pages/Layout"
 import Contact from "./pages/Contact"
 import Navbar from './pages/Navbar'
 
+export const UserNameContext = createContext();
+
 const App = () => {
+    const [username,setUsername] = useState("Shehzaib")
   return (
-    <div>
+    <div className='App'>
+    <UserNameContext.Provider value={{username,setUsername}}>
       <Router>
         <Navbar />
         <Routes>
@@ -17,7 +21,8 @@ const App = () => {
           
         </Routes>
       </Router>
-    </div>
+     </UserNameContext.Provider>
+     </div>
   )
 }
 
